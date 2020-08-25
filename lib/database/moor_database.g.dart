@@ -287,7 +287,7 @@ class $UsersTable extends Users with TableInfo<$UsersTable, User> {
   GeneratedTextColumn get email => _email ??= _constructEmail();
   GeneratedTextColumn _constructEmail() {
     return GeneratedTextColumn('email', $tableName, false,
-        minTextLength: 5, maxTextLength: 10);
+        minTextLength: 5, maxTextLength: 30);
   }
 
   final VerificationMeta _phoneMeta = const VerificationMeta('phone');
@@ -296,7 +296,7 @@ class $UsersTable extends Users with TableInfo<$UsersTable, User> {
   GeneratedTextColumn get phone => _phone ??= _constructPhone();
   GeneratedTextColumn _constructPhone() {
     return GeneratedTextColumn('phone', $tableName, false,
-        minTextLength: 11, maxTextLength: 11);
+        minTextLength: 1, maxTextLength: 11);
   }
 
   final VerificationMeta _statusMeta = const VerificationMeta('status');
