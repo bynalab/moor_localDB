@@ -25,17 +25,19 @@ class _ViewUser extends State<ViewUser> {
   StreamBuilder<List<User>> _buildUsers(BuildContext context) {
     final db = Provider.of<UserDB>(context);
     return StreamBuilder(
-        stream: db.watchUsers(),
-        builder: (context, AsyncSnapshot<List<User>> snapshot) {
-          final users = snapshot.data ?? List();
+      stream: db.watchUsers(),
+      builder: (context, AsyncSnapshot<List<User>> snapshot) {
+        final users = snapshot.data ?? List();
 
-          return ListView.builder(
-              itemCount: users.length,
-              itemBuilder: (_, index) {
-                final usersList = users[index];
-                return _buildUsersList(usersList, db);
-              });
-        });
+        return ListView.builder(
+          itemCount: users.length,
+          itemBuilder: (_, index) {
+            final usersList = users[index];
+            return _buildUsersList(usersList, db);
+          },
+        );
+      },
+    );
   }
 
   Widget _buildUsersList(User user, UserDB db) {
@@ -59,11 +61,12 @@ class _ViewUser extends State<ViewUser> {
         child: InkWell(
           onTap: () {},
           child: Container(
-              margin: EdgeInsets.all(20),
-              child: Text(
-                user.name,
-                style: TextStyle(fontSize: 20),
-              )),
+            margin: EdgeInsets.all(20),
+            child: Text(
+              user.name,
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
         ),
       ),
     );
