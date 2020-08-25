@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:moor_database/database/moor_database.dart';
-import 'package:moor_database/widgets/months.dart';
 import 'package:provider/provider.dart';
 
 class AddUser extends StatefulWidget {
