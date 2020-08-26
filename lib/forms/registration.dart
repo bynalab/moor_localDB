@@ -9,9 +9,16 @@ class Registration extends StatefulWidget {
   final String email;
   final String phone;
   final int id;
+  final bool addUser;
   // final int chapter, verse;
   Registration(
-      {Key key, this.title, this.name, this.email, this.phone, this.id})
+      {Key key,
+      this.title,
+      this.name,
+      this.email,
+      this.phone,
+      this.id,
+      @required this.addUser})
       : super(key: key);
   // Registration(this.name);
   @override
@@ -140,16 +147,21 @@ class _RegistrationState extends State<Registration> {
                   email: emailController.text,
                   phone: phoneController.text,
                   status: true);
+              if (widget.addUser) {
+                db.insertUser(user);
+                resetForm();
+              } else {
+                db.updateUser(
+                  user.copyWith(
+                      id: widget.id,
+                      title: titleController.text,
+                      name: nameController.text,
+                      email: emailController.text,
+                      phone: phoneController.text),
+                );
+                Navigator.pop(context);
+              }
 
-              db.updateUser(
-                user.copyWith(
-                    id: widget.id,
-                    title: titleController.text,
-                    name: nameController.text,
-                    email: emailController.text,
-                    phone: phoneController.text),
-              );
-              Navigator.pop(context);
               // resetForm();
             },
           ),

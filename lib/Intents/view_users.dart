@@ -64,9 +64,9 @@ class _ViewUser extends State<ViewUser> {
                         Text(
                           'Editing ' + user.name,
                           style: TextStyle(
-                              // color: Colors.deepPurple,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w900),
+                            fontSize: 20,
+                            fontWeight: FontWeight.w900,
+                          ),
                         ),
                         Registration(
                           id: user.id,
@@ -74,6 +74,8 @@ class _ViewUser extends State<ViewUser> {
                           name: user.name,
                           email: user.email,
                           phone: user.phone,
+                          addUser:
+                              false, //false means this form is populated on Edit User page
                         ),
                         CupertinoButton(
                           child: Text("Cancel"),
