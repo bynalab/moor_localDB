@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:moor_database/database/moor_database.dart';
+import 'package:moor_database/forms/registration.dart';
 import 'package:provider/provider.dart';
 
 class ViewUser extends StatefulWidget {
@@ -49,7 +50,46 @@ class _ViewUser extends State<ViewUser> {
           caption: 'Edit',
           color: Colors.black45,
           icon: Icons.edit,
-          onTap: () {},
+          onTap: () {
+            showCupertinoDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return SizedBox(
+                  height: 800,
+                  child: CupertinoPopupSurface(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'Editing ' + user.name,
+                          style: TextStyle(
+                              // color: Colors.deepPurple,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w900),
+                        ),
+                        Registration(
+                          id: user.id,
+                          title: user.title,
+                          name: user.name,
+                          email: user.email,
+                          phone: user.phone,
+                        ),
+                        CupertinoButton(
+                          child: Text("Cancel"),
+                          color: Colors.red,
+                          onPressed: () {
+                            Navigator.pop(context);
+                            // resetForm();
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            );
+          },
         ),
         IconSlideAction(
             caption: 'Delete',
