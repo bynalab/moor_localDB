@@ -8,7 +8,7 @@ Dependencies
 	provider: ^4.3.2+1
 	flutter_slidable: "^0.5.5" (For sliding action #UI)
 
-Dev_Dependencies
+Dev Dependencies
 
 	build_runner:
   	moor_generator: ^3.3.1
