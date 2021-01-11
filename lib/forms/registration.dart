@@ -10,7 +10,7 @@ class Registration extends StatefulWidget {
   final String phone;
   final int id;
   final bool addUser;
-  // final int chapter, verse;
+
   Registration(
       {Key key,
       this.title,
@@ -20,7 +20,7 @@ class Registration extends StatefulWidget {
       this.id,
       @required this.addUser})
       : super(key: key);
-  // Registration(this.name);
+
   @override
   _RegistrationState createState() => _RegistrationState();
 }
@@ -129,7 +129,7 @@ class _RegistrationState extends State<Registration> {
                       color: Colors.deepPurple,
                     ),
                   ),
-                  placeholder: '+234701298668',
+                  placeholder: '+2347012986**',
                 ),
               )
             ],
@@ -161,8 +161,6 @@ class _RegistrationState extends State<Registration> {
                 );
                 Navigator.pop(context);
               }
-
-              // resetForm();
             },
           ),
           SizedBox(height: 20),
