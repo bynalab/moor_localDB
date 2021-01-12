@@ -17,7 +17,6 @@ class _MonthPopup extends State<MonthPopup> {
               context: context,
               builder: (context) {
                 return CupertinoActionSheet(
-                  // message: Text("Thanks!"),
                   cancelButton: CupertinoActionSheetAction(
                     child: Text('Cancel'),
                     onPressed: () {
